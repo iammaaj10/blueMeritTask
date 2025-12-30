@@ -7,7 +7,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     const token = localStorage.getItem("token");
@@ -18,7 +17,6 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  
   const login = async (email, password) => {
     const res = await api.post("/auth/login", { email, password });
 
@@ -31,7 +29,6 @@ export const AuthProvider = ({ children }) => {
     return user;
   };
 
-
   const register = async (fullName, email, password) => {
     await api.post("/auth/register", {
       fullName,
@@ -40,12 +37,10 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
-  
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
-    window.location.href = "/login";
   };
 
   const value = {
