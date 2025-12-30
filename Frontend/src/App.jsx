@@ -1,14 +1,46 @@
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProtectedRoute from "./auth/ProtectedRoute";
 
-function App() {
- 
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+import AdminDashboard from "./pages/AdminDashboard";
+import NotFound from "./pages/NotFound";
 
+const App = () => {
   return (
-    <>
-      <h1 className='text-2xl text-center text-blue-600'>Allah is great</h1>
-        
-    </>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+       
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-export default App
+        
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+
+        
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
+
