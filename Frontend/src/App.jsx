@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProtectedRoute from "./auth/ProtectedRoute";
 
+import ProtectedRoute from "./auth/ProtectedRoute";
+import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
@@ -10,8 +11,10 @@ import NotFound from "./pages/NotFound";
 const App = () => {
   return (
     <BrowserRouter>
+      <Navbar />
+
       <Routes>
-       
+        
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
@@ -43,4 +46,3 @@ const App = () => {
 };
 
 export default App;
-
