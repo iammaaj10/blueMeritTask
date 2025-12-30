@@ -95,8 +95,8 @@ A bootstrap admin account is used for demonstration purposes
 
 Use the following account to test admin features:
 
-Email: admin@demo.com
-Password: Admin@123
+Email: maaj@example.com
+Password: password123
 
 ---------------------------------------------------------------------------------
 ⚠️ Note:
